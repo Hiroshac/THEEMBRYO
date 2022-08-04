@@ -9,12 +9,12 @@ router.post('/reg', Registation);
 //login
 router.post('/login', login);
 //update
-router.put('/update/:id', verifyAdmin, UpdateUser); 
+router.put('/update/:id', UpdateUser); 
 //delete
-router.delete('/delete/:id',verifyAdmin, DeleteUser);
+router.delete('/delete/:id', DeleteUser);
 //getbyid
-router.get('/get/:id', verifyUser, GetUser);
+router.get('/get/:id', GetUser);
 //getall
-router.get('/get',verifyUser, GetAllUser);
+router.get('/get', GetAllUser);
 
 export default router;

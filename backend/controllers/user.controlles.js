@@ -32,12 +32,13 @@ export const login = async (req, res, next) => {
     const token = jwt.sign( { id: user._id, isAdmin: user.isAdmin },process.env.JWT);
 
     const { password, isAdmin, ...otherDetails } = user._doc;
-    res
-      .cookie("access_token", token, {
-        httpOnly: true,
-      })
-      .status(200)
-      .json({ details: { ...otherDetails }, isAdmin });
+      return res
+          .cookie("access_token", token, {
+              httpOnly: true,
+          })
+          .status(200)
+          .json({ details: { ...otherDetails }, isAdmin })
+      console.log('suc');
   } catch (err) {
     next(err);
   }
@@ -46,14 +47,9 @@ export const login = async (req, res, next) => {
 //Update user
 export const UpdateUser = async(req, res, next) => {
     try {
-        if (req.user.isAdmin) { 
+        
             const updateuser = await User.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
              res.status(200).json(updateuser);
-        } else {
-      return next(createError(403, "You are not authorized!"));
-    }
-        
-
        
     } catch (err) {
         next(err);

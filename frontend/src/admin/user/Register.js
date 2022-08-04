@@ -11,25 +11,39 @@ const Register = () => {
   const Submit = (e) => {
     e.preventDefault();
 
-    if(password != rpassword){
+    if(password !== rpassword){
       console.log('password does not match');
+      alert('password does not match');
     }else{
-      alert('Succsessfully register');
     const newuser = {
       name,
       email,
-      password
+      password,
     }
-    axios.post('http://localhost:3000/user/add',newuser).then((res)=>{
+    axios.post('/user/reg',newuser).then((res)=>{
       alert('Succsessfully register');
     })
 
     }
   }
-
   return (
     <div>
-     <form onSubmit={Submit}>
+      <div>
+        <form onSubmit={Submit}>
+          <lable>Name</lable><br/>
+          <input type="name" value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
+           <lable>Email</lable><br/>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br /><br />
+           <lable>Password</lable><br/>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br /><br />
+           <lable>RePassword</lable><br/>
+          <input type="password" value={rpassword} onChange={(e) => setRpassword(e.target.value)} /><br /><br />
+
+          <button type='submit'>Register</button>
+
+        </form>
+      </div>
+     {/* <form onSubmit={Submit}>
       <div class="form-group">
         <label>Name</label>
         <input type="name" value={name} onChange={(e)=>setName(e.target.value)} class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name"/>
@@ -51,7 +65,7 @@ const Register = () => {
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form> */}
   </div>
   )
 }

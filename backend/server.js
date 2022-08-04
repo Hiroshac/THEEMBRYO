@@ -21,7 +21,7 @@ const connect = () => {
 }
 //error handling
 app.use((err, req, res, next) => {
-    const status = err.status || 500;
+    const status = err.status || 5000;
     const message = err.message || "somthing went wrong";
 
     return res.status(status).json({
@@ -40,7 +40,7 @@ app.use("/innovation", innovationRoute);
 
 
 //port coonection
-app.listen(3000, () => { 
+app.listen(5000, () => { 
     connect();
     console.log('port is running');
     
