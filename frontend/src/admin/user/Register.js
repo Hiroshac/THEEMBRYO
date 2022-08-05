@@ -5,6 +5,7 @@ const Register = () => {
 
   const [name, setName] = useState();
   const [email,setEmail] = useState();
+  const [isdadmin,setIsdAdmin] = useState();
   const [password,setPassword] = useState();
   const [rpassword,setRpassword] = useState();
 
@@ -19,6 +20,8 @@ const Register = () => {
       name,
       email,
       password,
+      isdadmin
+
     }
     axios.post('/user/reg',newuser).then((res)=>{
       alert('Succsessfully register');

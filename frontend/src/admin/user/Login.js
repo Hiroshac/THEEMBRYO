@@ -9,6 +9,12 @@ export const Login = () => {
     password: '',
   });
 
+
+  // if (logout) {
+  //   localStorage.removeItem("user");
+  //   window.location = "/admin";
+  // }
+
   const { loading, error, dispatch } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -16,7 +22,7 @@ export const Login = () => {
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
-//  console.log(credentials);
+
   const handleClick = async (e) => {
     e.preventDefault();
      console.log(credentials);
@@ -27,7 +33,7 @@ export const Login = () => {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
 
         
-        // navigate("/");
+        navigate("/user");
       } else {
         dispatch({
           type: "LOGIN_FAILURE",

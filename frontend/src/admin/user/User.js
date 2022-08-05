@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Navbar } from '../../commn/Navbar.js';
 
 export const User = () => {
     const [data, setData] = useState([]);
@@ -15,6 +16,9 @@ export const User = () => {
     })
   return (
       <div>
+        <div>
+        <Navbar/>
+        </div>
           <table>
               <tr>
                   <th>Name</th>

@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
       type: Boolean,
       default: true,
     },
+    idcadmin:{
+        type:Boolean,
+        default:false
+    },
 }, {timestamps : true});
 
 export default mongoose.model("User", userSchema);

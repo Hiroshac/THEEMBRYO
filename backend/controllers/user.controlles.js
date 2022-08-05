@@ -38,7 +38,6 @@ export const login = async (req, res, next) => {
           })
           .status(200)
           .json({ details: { ...otherDetails }, isAdmin })
-      console.log('suc');
   } catch (err) {
     next(err);
   }
@@ -47,9 +46,8 @@ export const login = async (req, res, next) => {
 //Update user
 export const UpdateUser = async(req, res, next) => {
     try {
-        
-            const updateuser = await User.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
-             res.status(200).json(updateuser);
+        const updateuser = await User.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+        res.status(200).json(updateuser);
        
     } catch (err) {
         next(err);
