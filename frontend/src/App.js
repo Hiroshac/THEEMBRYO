@@ -5,6 +5,7 @@ import { User } from './admin/user/User.js';
 import { useContext } from "react";
 import { AuthContext } from './context/AuthContext.js';
 import { Home } from './client/Home.js';
+import { InnovationAdd } from './admin/innovation/InnovationAdd.js';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route exact path={'/reg'} element={<Register />} />
           <Route exact path={'/'} element={<Home/>}/>
           <Route exact path = {'/user'} element={<User/>}/>
+          <Route exact path = {'/innovation'} element={<InnovationAdd/>}/>
         </Routes>
       </BrowserRouter>
     </div>
