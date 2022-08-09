@@ -5,10 +5,9 @@ import { AuthContext } from "../../context/AuthContext.js";
 
 export const Login = () => {
   const [credentials, setCredentials] = useState({
-    name: '',
-    password: '',
+    name: "",
+    password: "",
   });
-
 
   // if (logout) {
   //   localStorage.removeItem("user");
@@ -25,14 +24,13 @@ export const Login = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-     console.log(credentials);
+    console.log(credentials);
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post("/user/login", credentials);
       if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
 
-        
         navigate("/user");
       } else {
         dispatch({
@@ -55,7 +53,8 @@ export const Login = () => {
           onChange={handleChange}
           className="lInput"
         />
-        <br/><br/>
+        <br />
+        <br />
         <input
           type="password"
           placeholder="password"
@@ -63,7 +62,7 @@ export const Login = () => {
           onChange={handleChange}
           className="lInput"
         />
-        <br/>     
+        <br />
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login
         </button>
@@ -72,9 +71,6 @@ export const Login = () => {
     </div>
   );
 };
-
-
-
 
 // import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
@@ -121,7 +117,7 @@ export const Login = () => {
 
 //           //     window.location = '/dashBoard'
 //           //   })
-//         } 
+//         }
 //         //else if (res.data == 'denied') {
 //         //   SweatAlert('Incorrect Password')
 //         // } else {
@@ -147,7 +143,7 @@ export const Login = () => {
 //                 name='pasword'
 //                 onChange={(e) => setPassword(e.target.value)}
 //                 value={password} /><br /><br />
-        
+
 //               <button type='submit'>Login</button>
 //           </form>
 //     </div>
