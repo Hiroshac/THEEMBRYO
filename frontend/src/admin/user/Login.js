@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext.js";
+import Wrapper from '../../style/wrappers/RegisterPage'
 
 export const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -45,7 +46,38 @@ export const Login = () => {
 
   return (
     <div className="login">
-      <div className="lContainer">
+      <Wrapper className='full-page'>
+        <form className='form'>
+          <h3>Login</h3>
+            {/* name */}
+          <div className='form-row'>
+            <label className='form-label'>Name</label><br/>
+            <input
+              type="text"
+              placeholder="name"
+              id="name"
+              onChange={handleChange}
+              className="lInput"
+            />
+           
+          </div>
+          <div className='form-row'>
+            <label className='form-label'>Email</label><br/>
+            <input
+                type="password"
+                placeholder="password"
+                id="password"
+                onChange={handleChange}
+                className="lInput"
+            />
+          </div>
+          <button type='submit'onClick={handleClick} className='btn btn-block'>
+            submit
+          </button>
+        </form>
+      </Wrapper>
+
+      {/* <div className="lContainer">
         <input
           type="text"
           placeholder="name"
@@ -67,7 +99,7 @@ export const Login = () => {
           Login
         </button>
         {error && <span>{error.message}</span>}
-      </div>
+      </div> */}
     </div>
   );
 };

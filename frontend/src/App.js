@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext.js";
 import { Home } from "./client/Home.js";
 import { InnovationAdd } from "./admin/innovation/InnovationAdd.js";
+import { UserUpdate } from "./admin/user/UserUpdate.js";
 
 function App() {
   const ProtectedRoute = ({ children }) => {
@@ -24,7 +25,7 @@ function App() {
         <Routes>
           <Route exact path={"/admin"} element={<Login />} />
           {/* <Route exact path="/logout" element={<Login/>} /> */}
-          <Route exact path={"/reg"} element={<Register />} />
+          <Route exact path={"/reg"} element={<ProtectedRoute><Register /></ProtectedRoute>} />
           <Route exact path={"/"} element={<Home />} />
           <Route
             exact
@@ -35,7 +36,8 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route exact path={"/innovation"} element={<InnovationAdd />} />
+          <Route exact path={"/updateuser/:id"} element={<ProtectedRoute><UserUpdate /></ProtectedRoute>} />
+          <Route exact path={"/innovation"} element={<ProtectedRoute><InnovationAdd /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -18,9 +18,9 @@ const userSchema = new mongoose.Schema({
       type: Boolean,
       default: true,
     },
-    idcadmin:{
-        type:Boolean,
-        default:false
+    cadmin:{
+        type : String,
+        default: 'Admin',
     },
 }, {timestamps : true});
 

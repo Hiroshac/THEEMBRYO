@@ -1,0 +1,18 @@
+.flex{
+    display: flex;
+}
+
+.dbtn{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.mbtn{
+    margin-top: 5%;
+}
+
+.td{
+    margin-left: 10%;
+    margin-top: 5%;
+}

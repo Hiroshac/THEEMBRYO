@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Wrapper from '../../style/wrappers/RegisterPage'
+import { Navbar } from '../../commn/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
   const [name, setName] = useState();
   const [email,setEmail] = useState();
-  const [isdadmin,setIsdAdmin] = useState();
+  const [cadmin,setCAdmin] = useState();
   const [password,setPassword] = useState();
   const [rpassword,setRpassword] = useState();
+
+  const navi = new useNavigate();
 
   const Submit = (e) => {
     e.preventDefault();
@@ -20,55 +25,80 @@ const Register = () => {
       name,
       email,
       password,
-      isdadmin
+      rpassword,
+      cadmin
 
     }
     axios.post('/user/reg',newuser).then((res)=>{
       alert('Succsessfully register');
+      navi('/user')
+
     })
 
     }
   }
   return (
     <div>
-      <div>
-        <form onSubmit={Submit}>
-          <lable>Name</lable><br/>
-          <input type="name" value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
-           <lable>Email</lable><br/>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br /><br />
-           <lable>Password</lable><br/>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br /><br />
-           <lable>RePassword</lable><br/>
-          <input type="password" value={rpassword} onChange={(e) => setRpassword(e.target.value)} /><br /><br />
-
-          <button type='submit'>Register</button>
-
+      <Navbar/>
+       <Wrapper className='full-page'>
+        <form className='form' onSubmit={Submit}>
+          <h3>Add Users</h3>
+            {/* name */}
+          <div className='form-row'>
+            <label className='form-label'>Name</label>
+            <input
+              type={name}
+              value={name}
+              name={name}
+              onChange={(e)=>setName(e.target.value)}
+              className='form-input'
+            />
+            {/* email */}
+          </div>
+          <div className='form-row'>
+            <label className='form-label'>Email</label>
+            <input
+              type={email}
+              value={email}
+              name={email}
+              onChange={(e)=>setEmail(e.target.value)}
+              className='form-input'
+            />
+          </div>
+          {/* user */}
+          <div>
+            <label className='form-label'>User</label>
+            <select className='Subject Unit Comments' type={cadmin} name ={cadmin} onChange={(e)=>setCAdmin(e.target.value)} >
+              <option value="Admin">Admin</option>
+              <option value="Cadmin">Core-Admin</option>
+            </select>
+          </div>
+          {/* password */}
+          <div className='form-row'>
+            <label className='form-label'>Password</label>
+            <input
+              type={password}
+              value={password}
+              name={password}
+              onChange={(e)=>setPassword(e.target.value)}
+              className='form-input'
+            />
+          </div>
+          <div className='form-row'>
+            <label className='form-label'>ReEnter Password</label>
+            <input
+              type={password}
+              value={rpassword}
+              name={rpassword}
+              onChange={(e)=>setRpassword(e.target.value)}
+              className='form-input'
+            />
+          </div>
+          <button type='submit' className='btn btn-block'>
+            submit
+          </button>
         </form>
-      </div>
-     {/* <form onSubmit={Submit}>
-      <div class="form-group">
-        <label>Name</label>
-        <input type="name" value={name} onChange={(e)=>setName(e.target.value)} class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name"/>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} class="form-control" id="exampleInputPassword1" placeholder="email"/>
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password"value={password} onChange={(e)=>setPassword(e.target.value)} class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-      </div>
-      <div class="form-group">
-        <label>Re Password</label>
-        <input type="password"value={rpassword} onChange={(e)=>setRpassword(e.target.value)} class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-      </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form> */}
+      </Wrapper>
   </div>
   )
 }
