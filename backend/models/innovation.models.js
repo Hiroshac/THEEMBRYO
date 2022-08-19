@@ -6,10 +6,10 @@ const innovationSchema = new mongoose.Schema({
     },
     desc: {
         type: String,
+    },
+    image: {
+        type: String,
     }
-    // image: {
-    //     type: String,
-    // }
 });
 
 export default mongoose.model("Innovation", innovationSchema);

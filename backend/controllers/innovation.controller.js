@@ -1,12 +1,25 @@
 import Innovation from '../models/innovation.models.js';
-
+import multer from 'multer';
 import { createError } from "../utill/error.js";
 
+//multer and file location
+export const Upload = multer({storage : multer.diskStorage({
+    destination : (req, file, callback) => {
+        callback(null, 'upload')
+    },
+    filename : (req, file, callback) => {
+        callback(null, file.originalname)
+    },
+})});
 
 //Create Inovation
 export const CreateInovation = async (req, res, next) => {
     try {
-        const newInnovation = new Innovation({ ...req.body });
+        const newInnovation = new Innovation({ 
+            name : req.body.name,
+            desc: req.body.desc,
+            image: req.file.originalname,
+         });
         await newInnovation.save();
         res.status(200).json("Innovation has been created.....");
     } catch (err) {

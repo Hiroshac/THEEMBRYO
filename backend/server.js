@@ -37,6 +37,7 @@ app.use(express.json());
 
 app.use("/user", userRoute);
 app.use("/innovation", innovationRoute);
+app.use('/upload', express.static('upload'))
 
 
 //port coonection

@@ -1,0 +1,11 @@
+.slideheight{
+    height: 5%;
+    width: 100%;
+}
+.navbar{
+    position: fixed;
+    top:0px;
+    width: 100%;
+    z-index: 10000;
+
+}

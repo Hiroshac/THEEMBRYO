@@ -1,10 +1,10 @@
 import express from 'express';
-import { CreateInovation, DeleteInnovation, GetAllInnovation, GetInnovatiom, UpdateInnovation } from '../controllers/innovation.controller.js';
+import { CreateInovation, DeleteInnovation, GetAllInnovation, GetInnovatiom, UpdateInnovation, Upload } from '../controllers/innovation.controller.js';
 
 const router = express.Router();
 
 //create innovation
-router.post('/add', CreateInovation);
+router.post('/add',Upload.single('file'),CreateInovation);
 //update
 router.put('/update/:id', UpdateInnovation);
 //delete

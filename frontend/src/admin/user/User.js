@@ -16,6 +16,7 @@ export const User = () => {
             console.log(err);
         }
     });
+    //delete user 
     const Deleteuser = (id) =>{
         axios.delete(`/user/delete/${id}`)
     }

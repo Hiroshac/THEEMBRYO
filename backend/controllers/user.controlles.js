@@ -86,3 +86,4 @@ export const GetAllUser = async (req, res, next) => {
         next(err);
     }
 };
+

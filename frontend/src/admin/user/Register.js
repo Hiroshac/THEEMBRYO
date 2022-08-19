@@ -31,8 +31,7 @@ const Register = () => {
     }
     axios.post('/user/reg',newuser).then((res)=>{
       alert('Succsessfully register');
-      navi('/user')
-
+      navi('/user');
     })
 
     }
