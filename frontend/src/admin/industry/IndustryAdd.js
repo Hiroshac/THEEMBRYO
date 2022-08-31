@@ -5,11 +5,9 @@ import { Navbar } from '../../commn/Navbar';
 import Wrapper from '../../style/wrappers/RegisterPage';
 import { useNavigate } from 'react-router-dom';
 
-export const InnovationAdd = () => {
+export const InudtryAdd = () => {
 
   const [name,setName] = useState('');
-  const [desc,setDesc] = useState('');
-  const [longdesc,setLongdesc] = useState('');
   const [file,setFile] = useState([]);
 
   const ImageAdd = (e) => {
@@ -25,17 +23,13 @@ export const InnovationAdd = () => {
     const formData = new FormData();
 
     formData.append("name",name);
-    formData.append("desc",desc);
-    formData.append("longdesc",longdesc);
     formData.append("file",file);
 
     setName("");
-    setDesc("");
-    setLongdesc("");
 
-     axios.post("/innovation/add",formData).then((res)=>{
+     axios.post("/industry/add",formData).then((res)=>{
       alert('Succsessfully Added');
-      navi('/Ainnovation');
+      navi('/Aindustry');
     })
   }
 
@@ -43,9 +37,9 @@ export const InnovationAdd = () => {
     <div>
         <Navbar/>
         <div>
-          <Link to={'/Ainnovation'}>
+          <Link to={'/Aindustry'}>
             <div className='' style={{textAlign: 'center'}}> 
-              <button type="button" className="btn btn-primary">Innovations</button>
+              <button type="button" className="btn btn-primary">Industry Partnership</button>
             </div>
           </Link>
         </div>
@@ -53,7 +47,7 @@ export const InnovationAdd = () => {
         <div>
            <Wrapper className='full-page'>
             <form className='form' onSubmit={Submit} encType="multipart/form-data">
-              <h3>Add Innovation</h3>
+              <h3>Add Industry</h3>
                 {/* name */}
               <div className='form-row'>
                 <label className='form-label'>Name</label>
@@ -61,27 +55,6 @@ export const InnovationAdd = () => {
                   type='text'
                   name={name}
                   onChange={(e)=>setName(e.target.value)}
-                  className='form-input'
-                />
-              </div>
-               {/* desc */}
-              <div className='form-row'>
-                <label className='form-label'> Short Descriptiopn</label>
-                <input
-                  type='text'
-                  value={desc}
-                  name={desc}
-                  onChange={(e)=>setDesc(e.target.value)}
-                  className='form-input'
-                />
-              </div>
-                   {/* longdesc */}
-              <div className='form-row'>
-                <label className='form-label'>Description</label>
-                <input
-                  type='text'
-                  name={longdesc}
-                  onChange={(e)=>setLongdesc(e.target.value)}
                   className='form-input'
                 />
               </div>

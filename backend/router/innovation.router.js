@@ -1,5 +1,5 @@
 import express from 'express';
-import { CreateInovation, DeleteInnovation, GetAllInnovation, GetInnovatiom, UpdateInnovation, Upload } from '../controllers/innovation.controller.js';
+import { CreateInovation, DeleteInnovation, GetAllInnovation, GetInnovatiom, GetLastData, UpdateInnovation, Upload } from '../controllers/innovation.controller.js';
 
 const router = express.Router();
 
@@ -13,5 +13,7 @@ router.delete('/delete/:id', DeleteInnovation);
 router.get('/get/:id', GetInnovatiom);
 //get all innovation
 router.get('/get', GetAllInnovation);
+//get last data
+router.get('/getlast', GetLastData);
 
 export default router;

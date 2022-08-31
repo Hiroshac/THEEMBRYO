@@ -18,9 +18,10 @@ export const CreateInovation = async (req, res, next) => {
         const newInnovation = new Innovation({ 
             name : req.body.name,
             desc: req.body.desc,
+            longdesc: req.body.longdesc,
             image: req.file.originalname,
          });
-        await newInnovation.save();
+        await newInnovation.save()
         res.status(200).json("Innovation has been created.....");
     } catch (err) {
         next(err);
@@ -67,5 +68,15 @@ export const GetAllInnovation = async (req, res, next) => {
         res.status(200).json(getallInnovation);
     } catch (err) {
         next(err);
+    }
+};
+
+//Get Last Three Data
+export const GetLastData = async (req, res, next) => {
+    try {
+        const getlastdata = await Innovation.find().sort({_id:-1}).limit(3);
+        res.status(200).json(getlastdata);
+    }catch(err) {
+        console.log(err);
     }
 };

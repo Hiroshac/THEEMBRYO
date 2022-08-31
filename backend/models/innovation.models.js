@@ -7,6 +7,9 @@ const innovationSchema = new mongoose.Schema({
     desc: {
         type: String,
     },
+    longdesc: {
+        type: String,
+    },
     image: {
         type: String,
     }

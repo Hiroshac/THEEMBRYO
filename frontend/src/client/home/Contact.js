@@ -1,9 +1,12 @@
 import React from 'react'
 
 export const Contact = () => {
+    const year = () => {
+        return 
+    }
   return (
     <div>
-        <div className='pt-3 pb-3' style={{backgroundColor:'#708090'}}>
+        <div className='pt-3 pb-3 mx-5 bggray2' >
             <h1 className='ml-5 text-white'>Contact US</h1>
             <div>
                 <></>
@@ -20,7 +23,7 @@ export const Contact = () => {
             <hr></hr>
         </div>
         <div className='container text-center'>
-            <p>Copyright © 2022 Research & Development | Powered by Research & Development</p>
+            <p>Copyright © <>{(new Date().getFullYear())}</> Research & Development | Powered by Research & Development</p>
         </div>
         <hr/>
     </div>

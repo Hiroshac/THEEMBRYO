@@ -39,7 +39,7 @@ const Register = () => {
   return (
     <div>
       <Navbar/>
-       <Wrapper className='full-page'>
+       <Wrapper className='full-page mt-5'>
         <form className='form' onSubmit={Submit}>
           <h3>Add Users</h3>
             {/* name */}

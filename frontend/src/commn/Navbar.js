@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo from '../image/logo.jpg';
 
 export const Navbar = () => {
 
@@ -16,14 +17,14 @@ const [item,setItem] = useState([]);
         localStorage.getItem("user") === null ||
         localStorage.getItem("user") === "" ? (
           <>
+          {/* client navigation bar */}
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
                   
-               <a class="navbar-brand" href="#">
-                   <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""/>
-                      SLT Image
+               <a className="navbar-brand ml-5" href="/">
+                   <img src={logo} width="180" height="50" className="d-inline-block align-top" alt=""/>
                </a>
                <div className="ml-5 pl-5"></div>
 
@@ -37,10 +38,9 @@ const [item,setItem] = useState([]);
                           Studios
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a className="dropdown-item" href="#">Action</a>
-                          <a className="dropdown-item" href="#">Another action</a>
-                          <div className="dropdown-divider"></div>
-                          <a className="dropdown-item" href="#">Something else here</a>
+                          <a className="dropdown-item" href="#">Intrapreneurship Studio</a>
+                          <a className="dropdown-item" href="#">Entrepreneurship Studio</a>
+                          <a className="dropdown-item" href="#">Internship Studio</a>
                         </div>
                       </li>
                       <li className="nav-item dropdown">
@@ -58,7 +58,7 @@ const [item,setItem] = useState([]);
                           Colabaration and Programms
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a className="dropdown-item" href="#">University Partnership</a>
+                          <a className="dropdown-item" href="/university">University Partnership</a>
                           <a className="dropdown-item" href="#">Industry Partnership</a>
                           <a className="dropdown-item" href="#">Ongoing Programms</a>
                         </div>
@@ -85,14 +85,16 @@ const [item,setItem] = useState([]);
                   </div>
                 </nav>
           </>
+
+          // admin navigation bar
         ) : (
           <>
-           <nav className="navbar navbar-expand-lg navbar-light bg-light">
+           <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <div className="collapse navbar-collapse ml-5" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
                         <a class="nav-link" href="/user">Users</a>
@@ -105,7 +107,7 @@ const [item,setItem] = useState([]);
                           Colabaration and Programms
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">University Partnership</a>
+                          <a class="dropdown-item" href="/Auniversity">University Partnership</a>
                           <a class="dropdown-item" href="#">Industry Partnership</a>
                           <a class="dropdown-item" href="#">Ongoing Partnership</a>
                         </div>

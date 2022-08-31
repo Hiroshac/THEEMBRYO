@@ -43,6 +43,10 @@ html {
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
+  /* gray */
+  --gray:#CCCCCC;
+  --gray--500:#666666;
+
   /* fonts  */
   --headingFont: 'Roboto Condensed', Sans-Serif;
   --bodyFont: 'Cabin', Sans-Serif;
@@ -319,3 +323,14 @@ ul {
     margin-right: 0.5rem;
   }
 }
+
+/* main color */
+
+.bggray{
+  background-color: var(--gray);
+}
+
+.bggray2{
+  background-color: var(--gray--500);
+}
+

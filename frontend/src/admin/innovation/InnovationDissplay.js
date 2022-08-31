@@ -25,18 +25,19 @@ export const InnovationDisplay = () => {
   return (
     <div>
         <Navbar/>
-        <div className='' style={{textAlign: 'center'}}>
-            <div className='' style={{textAlign: 'center'}}> 
+        <div className='mt-5' style={{textAlign: 'center'}}>
+            <div className='mt-5' style={{textAlign: 'center'}}> 
                 <Link to={'/innovationadd'}>
-                    <button type="button" className="btn btn-primary">ADD Innovations</button>
+                    <button type="button" className="btn btn-primary mt-5">ADD Innovations</button>
                 </Link>
             </div>
-            <div>
-              <table className="table" style={{width:'50%', marginLeft:"25%",marginRight:"25%"}}>
+            <div className='mt-5'>
+              <table className="table" style={{width:'70%', marginLeft:"15%",marginRight:"15%"}}>
                         <thead>
                             <tr>
                                 <th scope="col">Image</th>
                                 <th scope="col">Item Name</th>
+                                <th scope="col">Short Description</th>
                                 <th scope="col">Description</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
@@ -46,16 +47,35 @@ export const InnovationDisplay = () => {
                         {items.map((innovation) => { 
                         return (
                             <tr>
-                                    <td><div  className='col-lg-5'><img className='img-fluid rounded mb-4 mb-lg-0' src = {'/upload/' + innovation.image}/></div></td>
-                                    {/* <td><img className='img-fluid rounded mb-5 mb-lg-0' src = {innovation.image}/></td> */}
+                                    <td><><img className='img-fluid rounded mb-1 mb-lg-0' src = {'/upload/' + innovation.image}/></></td>
                                     <td>{innovation.name}</td>
-                                    <td>{innovation.desc}</td>
+                                    <td>
+                                        <textarea  className="form-control" 
+                                                    id="exampleFormControlTextarea1"
+                                                    rows={8}
+                                                    cols-xs-10
+                                                    type='desc'
+                                                    disabled>
+                                        {innovation.desc}
+                                        </textarea>
+                                    </td>
+                                    <td>
+                                        <textarea  class="form-control" 
+                                                    id="exampleFormControlTextarea1"
+                                                    rows={8}
+                                                    cols-xs-10
+                                                    cols={20}
+                                                    type='desc'
+                                                    disabled>
+                                        {innovation.longdesc}
+                                        </textarea>
+                                    </td>
+                                    {/* <td>{innovation.longdesc}</td> */}
                                     <td>
                                         <Link to={`/updateinnovation/${innovation._id}`}>
                                             <button className='btn'>Update</button>
                                         </Link>
-                                    </td>
-                                    <td>
+                                    
                                         <button className='btn' onClick={()=>{
                                             Deleteinnovation(innovation._id);
                                             }}>Delete

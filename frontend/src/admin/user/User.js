@@ -26,17 +26,17 @@ export const User = () => {
         <div>
         <Navbar/>
         </div>
-        <div className='flex'>
+        <div className='mt-5' style={{textAlign: 'center'}}>
             <div className='dbtn'>
                 <Link to='/reg'>
-                     <button className='btn btn-primary'>Add User</button><br/>
+                     <button className='btn btn-primary mt-5'>Add User</button>
                 </Link>
                 <Link to='/user'>
-                     <button className='btn btn-primary mbtn'>User Details</button>
+                     <button className='btn btn-primary mt-5 '>User Details</button>
                 </Link>
             </div>
             <div className='td'>
-            <table className="table">
+            <table className="table" style={{width:'70%', marginLeft:"15%",marginRight:"15%"}}>
                 <thead>
                     <tr>
                         <th scope="col">User Name</th>

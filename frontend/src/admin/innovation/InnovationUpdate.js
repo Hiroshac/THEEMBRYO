@@ -7,6 +7,7 @@ export const InnovationUpdate = () => {
 
     const[name,setName] = useState();
     const[desc,setDesc] = useState();
+    const[longdesc,setLongdesc] = useState();
 
     const params = useParams();
     const navi = new useNavigate();
@@ -15,11 +16,12 @@ export const InnovationUpdate = () => {
         axios.get(`/innovation/get/${params.id}`).then((res)=>{
             setName(res.data.name);
             setDesc(res.data.desc);
+            setLongdesc(res.data.longdesc);
         })
     },[]);
 
     const data = {
-        name,desc
+        name,desc,longdesc
     }
 
     const Update = () => {
@@ -44,9 +46,9 @@ export const InnovationUpdate = () => {
               className='form-input'
             />
           </div>
-           {/* email */}
-          <div className='form-row'>
-            <label className='form-label'>DEscription</label>
+           {/* Short Description */}
+          {/* <div className='form-row'>
+            <label className='form-label'>Short Description</label>
             <input
               type='desc'
               value={desc}
@@ -54,7 +56,33 @@ export const InnovationUpdate = () => {
               onChange={(e)=>setDesc(e.target.value)}
               className='form-input'
             />
+          </div> */}
+          {/* SHort Description */}
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1"> Short Description</label>
+            <textarea 
+              class="form-control" 
+              id="exampleFormControlTextarea1"
+              rows={10}
+              type='desc'
+              value={desc}
+              name={desc}
+              onChange={(e)=>setDesc(e.target.value)} />
           </div>
+
+          {/*  Description */}
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea 
+              class="form-control" 
+              id="exampleFormControlTextarea1"
+              type='desc'
+              rows='10'
+              value={longdesc}
+              name={longdesc}
+              onChange={(e)=>setLongdesc(e.target.value)} />
+          </div>
+
             <button type='submit' className='btn btn-block'>
             Update
           </button>
