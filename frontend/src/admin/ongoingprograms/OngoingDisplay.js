@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar } from '../../commn/Navbar';
 
-export const IndustryDisplay = () => {
+export const OngoingDisplay = () => {
     const [items,setItem] = useState([]);
 
     const navi = new useNavigate
 
     useEffect(() => { 
       try {
-          axios.get( "/industry/get").then((res) => {
+          axios.get( "/ongoing/get").then((res) => {
               setItem(res.data);
           })
       } catch (err) { 
@@ -21,9 +21,9 @@ export const IndustryDisplay = () => {
   console.log(items);
 
     // delete industry 
-    const Deleteindustry = (id) =>{
-        axios.delete(`/industry/delete/${id}`);
-        navigator('/Aindustry');
+    const Deleteongoing = (id) =>{
+        axios.delete(`/ongoing/delete/${id}`);
+        navigator('/Aongoing');
     }
 
   return (
@@ -31,12 +31,12 @@ export const IndustryDisplay = () => {
         <Navbar/>
         <div className='mt-5' style={{textAlign: 'center'}}>
             <div className='' style={{textAlign: 'center'}}> 
-                <Link to={'/industryadd'}>
-                    <button type="button" className="btn btn-primary mt-5">ADD New Industry</button>
+                <Link to={'/ongoingadd'}>
+                    <button type="button" className="btn btn-primary mt-5">ADD New Ongoing</button>
                 </Link>
             </div>
             <div className='mt-5'>
-                <h3>Industry Partnership</h3>
+                <h3>Ongoing Partnership</h3>
               <table className="table" style={{width:'50%', marginLeft:"25%",marginRight:"25%"}}>
                         <thead>
                             <tr>
@@ -47,18 +47,18 @@ export const IndustryDisplay = () => {
                             </tr>
                         </thead>
                         <tbody>
-                        {items.map((industry) => { 
+                        {items.map((ongoing) => { 
                         return (
                             <tr>
-                                    <td><><img className='img-fluid rounded mb-1 mb-lg-0' src = {'/industry/' + industry.image}/></></td>
-                                    <td>{industry.name}</td>
+                                    <td><><img className='img-fluid rounded mb-1 mb-lg-0' src = {'/ongoing/' + ongoing.image}/></></td>
+                                    <td>{ongoing.name}</td>
                                     <td>
-                                        <Link to={`/updateindustry/${industry._id}`}>
+                                        <Link to={`/updateongoing/${ongoing._id}`}>
                                             <button className='btn'>Update</button>
                                         </Link>
                             
                                         <button className='btn' onClick={()=>{
-                                            Deleteindustry(industry._id);
+                                            Deleteongoing(ongoing._id);
                                             }}>Delete
                                         </button>
                                     </td>

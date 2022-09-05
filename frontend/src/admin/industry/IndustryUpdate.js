@@ -11,7 +11,7 @@ export const IndustryUpdate = () => {
     const navi = new useNavigate();
 
     useEffect(()=>{
-        axios.get(`/university/get/${params.id}`).then((res)=>{
+        axios.get(`/industry/get/${params.id}`).then((res)=>{
             setName(res.data.name);
         })
     },[]);
@@ -21,9 +21,9 @@ export const IndustryUpdate = () => {
     }
 
     const Update = () => {
-        axios.put(`/university/update/${params.id}`,data);
-        alert('Update University');
-        navi('/Auniversity');
+        axios.put(`/industry/update/${params.id}`,data);
+        alert('Update Industry');
+        navi('/Aindustry');
     }
 
   return (

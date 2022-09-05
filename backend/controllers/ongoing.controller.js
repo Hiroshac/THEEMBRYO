@@ -19,7 +19,7 @@ export const CreateOngoing = async (req, res, next) => {
             name : req.body.name,
             image: req.file.originalname,
          });
-        await newIndustry.save()
+        await newOngoing.save()
         res.status(200).json("Ongoing has been created.....");
     } catch (err) {
         next(err);

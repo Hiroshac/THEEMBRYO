@@ -4,7 +4,7 @@ const ongoingschema = new mongoose.Schema({
     image : {
         type : String,
     },
-    Name : {
+    name : {
         type : String,
     }
 });

@@ -45,6 +45,8 @@ app.use("/industry", industryRoute);
 app.use("/ongoing", ongoingRoute);
 app.use('/upload', express.static('upload'));
 app.use('/university', express.static('university'));
+app.use('/industry', express.static('industry'));
+app.use('/ongoing', express.static('ongoing'));
 
 
 //port coonection

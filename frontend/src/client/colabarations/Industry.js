@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { Navbar } from '../../commn/Navbar';
 import { Contact } from '../home/Contact';
 
-export const University = () => {
+export const Industry = () => {
 
     const [item, setItem] = useState([]);
 
     useEffect(()=>{
-        axios.get('/university/get').then((res)=>{
+        axios.get('/industry/get').then((res)=>{
             setItem(res.data);
         })
     });
@@ -22,7 +22,7 @@ export const University = () => {
                     <div className="row gx-5 justify-content-center">
                         <div className="col-lg-8 col-xl-6">
                             <div className="text-center">
-                                <h1>University Partnership</h1>
+                                <h1>Industry Partnership</h1>
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ export const University = () => {
                         <div className="row gx-4 gy-4 mb-5 ml-2">
                             <div className="col-lg- mb-2">
                                 <div className="card h-30 shadow border-0 text-center ">
-                                    <img className="card-img-top smallimage" src={'/university/' + datas.image} alt="..."  />
+                                    <img className="card-img-top smallimage" src={'/industry/' + datas.image} alt="..."  />
                                     <div className="card-body p-2">
                                         <a className="text-decoration-none link-dark stretched-link" href=''><h5 class="card-title mb-3">{datas.name}</h5></a>
                                         

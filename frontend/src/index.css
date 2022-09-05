@@ -334,3 +334,11 @@ ul {
   background-color: var(--gray--500);
 }
 
+
+/* images */
+
+.smallimage{
+  width: 100px;
+  height: 300px;
+}
+

@@ -30,7 +30,7 @@ const [item,setItem] = useState([]);
 
                   <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                      <li className="nav-item active">
+                      <li className="nav-item ">
                         <a className="nav-link" href="/">Home</a>
                       </li>
                       <li className="nav-item dropdown">
@@ -59,8 +59,8 @@ const [item,setItem] = useState([]);
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a className="dropdown-item" href="/university">University Partnership</a>
-                          <a className="dropdown-item" href="#">Industry Partnership</a>
-                          <a className="dropdown-item" href="#">Ongoing Programms</a>
+                          <a className="dropdown-item" href="/industry">Industry Partnership</a>
+                          <a className="dropdown-item" href="/ongoing">Ongoing Programms</a>
                         </div>
                       </li>
                       <li className="nav-item dropdown">
@@ -108,8 +108,8 @@ const [item,setItem] = useState([]);
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/Auniversity">University Partnership</a>
-                          <a class="dropdown-item" href="#">Industry Partnership</a>
-                          <a class="dropdown-item" href="#">Ongoing Partnership</a>
+                          <a class="dropdown-item" href="/Aindustry">Industry Partnership</a>
+                          <a class="dropdown-item" href="/Aongoing">Ongoing Partnership</a>
                         </div>
                       </li>
                       <li class="nav-item dropdown">

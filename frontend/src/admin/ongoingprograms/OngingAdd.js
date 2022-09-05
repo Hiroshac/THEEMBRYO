@@ -5,7 +5,7 @@ import { Navbar } from '../../commn/Navbar';
 import Wrapper from '../../style/wrappers/RegisterPage';
 import { useNavigate } from 'react-router-dom';
 
-export const IndustryAdd = () => {
+export const OngoingAdd = () => {
 
   const [name,setName] = useState('');
   const [file,setFile] = useState([]);
@@ -27,9 +27,9 @@ export const IndustryAdd = () => {
 
     setName("");
 
-     axios.post("/industry/add",formData).then((res)=>{
+     axios.post("/ongoing/add",formData).then((res)=>{
       alert('Succsessfully Added');
-      navi('/Aindustry');
+      navi('/Aongoing');
     })
   }
 
@@ -37,9 +37,9 @@ export const IndustryAdd = () => {
     <div>
         <Navbar/>
         <div >
-          <Link to={'/Aindustry'}>
+          <Link to={'/Aongoing'}>
             <div className='mt-5' style={{textAlign: 'center'}}> 
-              <button type="button" className="btn btn-primary mt-5">Industry Partnerships</button>
+              <button type="button" className="btn btn-primary mt-5">Ongoing Partnerships</button>
             </div>
           </Link>
         </div>
@@ -47,7 +47,7 @@ export const IndustryAdd = () => {
         <div>
            <Wrapper className='full-page'>
             <form className='form' onSubmit={Submit} encType="multipart/form-data">
-              <h3>Add New Industry Partnership</h3>
+              <h3>Add New Ongoing Partnership</h3>
                 {/* name */}
               <div className='form-row'>
                 <label className='form-label'>Name</label>
